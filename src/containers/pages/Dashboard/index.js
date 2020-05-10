@@ -1,13 +1,15 @@
 import React, { Component, Fragment } from 'react';
 import './Dashboard.scss';
-import { addDataToAPI, getDataFromAPI } from '../../../config/redux/action';
+import { addDataToAPI, getDataFromAPI, updateDataAPI } from '../../../config/redux/action';
 import { connect } from 'react-redux';
 
 class Dashboard extends Component {
   state = {
     title: '',
     content: '',
-    date: ''
+    date: '',
+    textButton: 'SIMPAN',
+    articleId: ''
   }
 
   // componentDidMount () {
@@ -25,8 +27,8 @@ class Dashboard extends Component {
   }
 
   handleUploadArticles = () => {
-    const {title, content} = this.state;
-    const {uploadArticles} = this.props;
+    const {title, content, textButton, articleId} = this.state;
+    const {uploadArticles, updateArticles} = this.props;
     const userData = JSON.parse(localStorage.getItem('userData'))
 
     const data = {
@@ -35,7 +37,14 @@ class Dashboard extends Component {
       date: new Date().getTime(),
       userId: userData.uid
     }
-    uploadArticles(data)
+
+    if (textButton === 'SIMPAN') {
+      uploadArticles(data)
+    } else {
+      data.articleId = articleId;
+      updateArticles(data)
+    }
+    
     console.log(data)
   }
 
@@ -45,9 +54,28 @@ class Dashboard extends Component {
     })
   }
 
+  updateArticles = (article) => {
+    console.log(article)
+    this.setState ({
+      title: article.data.title,
+      content: article.data.content,
+      textButton: 'UPDATE',
+      articleId: article.id
+    })
+  }
+
+  cancelUpdate = () => {
+    this.setState ({
+      title: '',
+      content: '',
+      textButton: 'SIMPAN'
+    })
+  }
+
     render() {
-      const {title, content, date} = this.state;
+      const {title, content, textButton} = this.state;
       const {articles} = this.props;
+      const {updateArticles, cancelUpdate} = this;
       console.log('articles: ', articles);
         return(
             <div className="container">
@@ -55,8 +83,15 @@ class Dashboard extends Component {
                     <input placeholder="title" className="input-title" value={title} onChange={(e) => this.onInputChange(e, 'title')}/>
                     <textarea placeholder="content" className="input-content" value={content} onChange={(e) => this.onInputChange(e, 'content')}>
 
-                    </textarea>  
-                    <button className="upload-btn" onClick={this.handleUploadArticles}> Upload </button>  
+                    </textarea>
+                    <div className="action-wrapper">
+                      {
+                        textButton === 'UPDATE' ? (
+                          <button className="upload-btn cancel" onClick={this.handleUploadArticles} onClick={cancelUpdate}> Cancel </button>  
+                        ) : <div/>
+                      }
+                      <button className="upload-btn" onClick={this.handleUploadArticles}> {textButton} </button>    
+                    </div>
                 </div>
                 <hr/>
                 {
@@ -65,7 +100,7 @@ class Dashboard extends Component {
                       {
                         articles.map(article => {
                           return (
-                            <div className="card-content" key={article.id}>
+                            <div className="card-content" key={article.id} onClick={() => updateArticles (article)}>
                               <p className="title"> {article.data.title} </p>
                               <p className="date"> {article.data.date} </p>
                               <p className="content"> {article.data.content} </p>
@@ -90,7 +125,8 @@ const reduxState = (state) => ({
 
 const reduxDispatch = (dispatch) => ({
   uploadArticles : (data) => dispatch(addDataToAPI(data)),
-  getArticles : (data) => dispatch(getDataFromAPI(data))
+  getArticles : (data) => dispatch(getDataFromAPI(data)),
+  updateArticles : (data) => dispatch(updateDataAPI(data)),
 })
 
 export default connect(reduxState, reduxDispatch)(Dashboard);

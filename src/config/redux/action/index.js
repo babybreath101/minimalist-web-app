@@ -81,3 +81,20 @@ export const getDataFromAPI = (userId) => (dispatch) => {
         });
     })
 }
+
+export const updateDataAPI = (data) => (dispatch) => {
+    const urlArticles = database.ref(`articles/${data.userId}/${data.articleId}`);
+    return new Promise ((resolve, reject) => {
+        urlArticles.set({
+            title: data.title,
+            content: data.content,
+            date: data.date
+        }, (err) => {
+            if (err) {
+                reject(false);
+            } else {
+                resolve(true)
+            }
+        });
+    })
+}
