@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './Dashboard.scss';
-import { addDataToAPI } from '../../../config/redux/action';
+import { addDataToAPI, getDataFromAPI } from '../../../config/redux/action';
 import { connect } from 'react-redux';
 
 class Dashboard extends Component {
@@ -10,15 +10,30 @@ class Dashboard extends Component {
     date: ''
   }
 
+  // componentDidMount () {
+  //   const userData = localStorage.getItem('userData')
+  //   console.log('dashboard :', JSON.parse(userData))
+  // }
+
+  // getDataFirebase = () =>  {
+  //   const starCountRef = firebase.database().ref('posts/' + postId + '/starCount');
+  // }
+
+  componentDidMount () {
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    this.props.getArticles(userData.uid);
+  }
+
   handleUploadArticles = () => {
     const {title, content} = this.state;
     const {uploadArticles} = this.props;
+    const userData = JSON.parse(localStorage.getItem('userData'))
 
     const data = {
       title: title,
       content: content,
       date: new Date().getTime(),
-      userId: this.props.userData.uid
+      userId: userData.uid
     }
     uploadArticles(data)
     console.log(data)
@@ -32,6 +47,8 @@ class Dashboard extends Component {
 
     render() {
       const {title, content, date} = this.state;
+      const {articles} = this.props;
+      console.log('articles: ', articles);
         return(
             <div className="container">
                 <div className="input-form">
@@ -42,22 +59,38 @@ class Dashboard extends Component {
                     <button className="upload-btn" onClick={this.handleUploadArticles}> Upload </button>  
                 </div>
                 <hr/>
-                <div className="card-content">
-                  <p className="title"> Title </p>
-                  <p className="date"> 23 Desember 2020 </p>
-                  <p className="content"> Content Article </p>
-                </div>
+                {
+                  articles.length > 0 ? (
+                    <Fragment>
+                      {
+                        articles.map(article => {
+                          return (
+                            <div className="card-content" key={article.id}>
+                              <p className="title"> {article.data.title} </p>
+                              <p className="date"> {article.data.date} </p>
+                              <p className="content"> {article.data.content} </p>
+                            </div>
+                          )
+                        })
+                      }
+                    </Fragment>
+                    
+                  ) : null
+                }
+                
             </div>
         )
     }
   }
 
 const reduxState = (state) => ({
-  userData: state.user
+  userData: state.user,
+  articles: state.articles
 })  
 
 const reduxDispatch = (dispatch) => ({
-  uploadArticles : (data) => dispatch(addDataToAPI(data))
+  uploadArticles : (data) => dispatch(addDataToAPI(data)),
+  getArticles : (data) => dispatch(getDataFromAPI(data))
 })
 
 export default connect(reduxState, reduxDispatch)(Dashboard);

@@ -61,3 +61,23 @@ export const addDataToAPI = (data) => (dispatch) => {
         date: data.date
     })
 }
+
+export const getDataFromAPI = (userId) => (dispatch) => {
+    const urlArticles = database.ref('articles/' + userId);
+    return new Promise ((resolve, reject) => {
+        urlArticles.on('value', function(snapshot) {
+            console.log('get Data: ', snapshot.val());
+
+            const data = []
+            Object.keys(snapshot.val()).map(key => {
+                data.push({
+                    id: key,
+                    data: snapshot.val()[key]
+                })
+            })
+
+            dispatch({type: 'SET_ARTICLES', value: data})
+            resolve(snapshot.val())
+        });
+    })
+}
