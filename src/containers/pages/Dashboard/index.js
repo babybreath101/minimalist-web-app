@@ -2,6 +2,10 @@ import React, { Component, Fragment } from 'react';
 import './Dashboard.scss';
 import { addDataToAPI, getDataFromAPI, updateDataAPI, deleteDataAPI } from '../../../config/redux/action';
 import { connect } from 'react-redux';
+import { Avatar } from 'antd';
+import { Button, Layout } from 'antd';
+
+const { Header, Content } = Layout;
 
 class Dashboard extends Component {
   state = {
@@ -88,23 +92,50 @@ class Dashboard extends Component {
       const {articles} = this.props;
       const {updateArticles, cancelUpdate, deleteArticle} = this;
       console.log('articles: ', articles);
-        return(
-            <div className="container">
-                <div className="input-form">
-                    <input placeholder="title" className="input-title" value={title} onChange={(e) => this.onInputChange(e, 'title')}/>
-                    <textarea placeholder="content" className="input-content" value={content} onChange={(e) => this.onInputChange(e, 'content')}>
 
-                    </textarea>
-                    <div className="action-wrapper">
-                      {
-                        textButton === 'UPDATE' ? (
-                          <button className="upload-btn cancel" onClick={this.handleUploadArticles} onClick={cancelUpdate}> Cancel </button>  
-                        ) : <div/>
-                      }
-                      <button className="upload-btn" onClick={this.handleUploadArticles}> {textButton} </button>    
-                    </div>
+        return(
+          <Layout>
+            <Header className="header">
+              <div>
+                <Avatar size={55} src="Picture/ebook.png"/>
+              </div>
+            </Header>
+
+            <Layout>
+              <Content>
+                <div className="container">
+                  <div className="input-form">
+                      <div className="sub-title">
+                        <h1>Title</h1>
+                      </div>
+                 
+                        <input placeholder="Title" className="input-title" value={title} onChange={(e) => this.onInputChange(e, 'title')}/>
+                        
+                        <div className="sub-content">
+                          <h1>Content</h1>
+                        </div>
+                              
+                          <textarea placeholder="Content" className="input-content" value={content} onChange={(e) => this.onInputChange(e, 'content')}>
+
+                          </textarea>
+                              
+                            <div className="action-wrapper">
+                              {
+                              textButton === 'UPDATE' ? (
+                                <button className="upload-btn cancel" onClick={this.handleUploadArticles} onClick={cancelUpdate}> Cancel </button>  
+                              ) : 
+                            <div/>
+                              }
+                            <button className="upload-btn" onClick={this.handleUploadArticles}> {textButton} </button>    
+                  </div>
                 </div>
+             
                 <hr/>
+
+                  <div className="list-published">
+                    <h1>List of Your Published Articles : </h1>
+                  </div>
+
                 {
                   articles.length > 0 ? (
                     <Fragment>
@@ -126,6 +157,10 @@ class Dashboard extends Component {
                 }
                 
             </div>
+            </Content>
+            </Layout>
+            
+          </Layout>
         )
     }
   }
