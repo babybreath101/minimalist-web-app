@@ -14,7 +14,7 @@
         margin: 0px;
         font-weight: bold;
         font-size: 24px;
-        color: #2196f3;
+        color: black;
         margin-bottom: 16px;
     }
     .btn {
@@ -25,20 +25,20 @@
 input.input {
     padding: 12px;
     border-radius: 8px;
-    border: 1px solid #2196f3;
+    border: 1px solid black;
     outline: none;
     display: block;
     margin-bottom: 12px;
     min-width: 300px;
-    color: #2196f3;
+    color: black;
 }
 
 button.btn {
     padding: 16px;
-    border: 1px solid #2196f3 ;
+    border: 1px solid black ;
     border-radius: 8px;
     min-width: 200px;
-    background: #2196f3;
+    background: black;
     color: white;
     display: block;
     margin: 0 auto;
@@ -47,7 +47,7 @@ button.btn {
     font-weight: bold;
     outline: none;
     &:hover {
-        background: #1873bb;
+        background: black;
         cursor: pointer;
     }
     &.disable {

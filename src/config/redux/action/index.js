@@ -98,3 +98,10 @@ export const updateDataAPI = (data) => (dispatch) => {
         });
     })
 }
+
+export const deleteDataAPI = (data) => (dispatch) => {
+    const urlArticles = database.ref(`articles/${data.userId}/${data.articleId}`);
+    return new Promise((resolve, reject) => {
+        urlArticles.remove();
+    })
+}

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import './Dashboard.scss';
-import { addDataToAPI, getDataFromAPI, updateDataAPI } from '../../../config/redux/action';
+import { addDataToAPI, getDataFromAPI, updateDataAPI, deleteDataAPI } from '../../../config/redux/action';
 import { connect } from 'react-redux';
 
 class Dashboard extends Component {
@@ -70,12 +70,23 @@ class Dashboard extends Component {
       content: '',
       textButton: 'SIMPAN'
     })
-  }
+  }  
+    deleteArticle = (e, article) => {
+      e.stopPropagation();
+      const {deleteArticle} = this.props;
+      const userData = JSON.parse(localStorage.getItem('userData'))
+      const data = {
+        userId: userData.uid,
+        articleId: article.id,
+      }
+      deleteArticle(data)
+    }
+  
 
     render() {
       const {title, content, textButton} = this.state;
       const {articles} = this.props;
-      const {updateArticles, cancelUpdate} = this;
+      const {updateArticles, cancelUpdate, deleteArticle} = this;
       console.log('articles: ', articles);
         return(
             <div className="container">
@@ -104,6 +115,7 @@ class Dashboard extends Component {
                               <p className="title"> {article.data.title} </p>
                               <p className="date"> {article.data.date} </p>
                               <p className="content"> {article.data.content} </p>
+                              <div className="delete-button" onClick={(e) => deleteArticle(e, article)}> Delete </div>
                             </div>
                           )
                         })
@@ -127,6 +139,7 @@ const reduxDispatch = (dispatch) => ({
   uploadArticles : (data) => dispatch(addDataToAPI(data)),
   getArticles : (data) => dispatch(getDataFromAPI(data)),
   updateArticles : (data) => dispatch(updateDataAPI(data)),
+  deleteArticle : (data) => dispatch(deleteDataAPI(data)),
 })
 
 export default connect(reduxState, reduxDispatch)(Dashboard);
