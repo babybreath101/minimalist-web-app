@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/minimalist-web-app/static/css/main.2236a508.chunk.css",
+    "main.js": "/minimalist-web-app/static/js/main.c4ec5289.chunk.js",
+    "main.js.map": "/minimalist-web-app/static/js/main.c4ec5289.chunk.js.map",
+    "runtime-main.js": "/minimalist-web-app/static/js/runtime-main.3c81a47e.js",
+    "runtime-main.js.map": "/minimalist-web-app/static/js/runtime-main.3c81a47e.js.map",
+    "static/css/2.2fbe55bd.chunk.css": "/minimalist-web-app/static/css/2.2fbe55bd.chunk.css",
+    "static/js/2.4226e357.chunk.js": "/minimalist-web-app/static/js/2.4226e357.chunk.js",
+    "static/js/2.4226e357.chunk.js.map": "/minimalist-web-app/static/js/2.4226e357.chunk.js.map",
+    "index.html": "/minimalist-web-app/index.html",
+    "precache-manifest.bbb93abb42e37e1e86f467a940c65f62.js": "/minimalist-web-app/precache-manifest.bbb93abb42e37e1e86f467a940c65f62.js",
+    "service-worker.js": "/minimalist-web-app/service-worker.js",
+    "static/css/2.2fbe55bd.chunk.css.map": "/minimalist-web-app/static/css/2.2fbe55bd.chunk.css.map",
+    "static/css/main.2236a508.chunk.css.map": "/minimalist-web-app/static/css/main.2236a508.chunk.css.map",
+    "static/js/2.4226e357.chunk.js.LICENSE.txt": "/minimalist-web-app/static/js/2.4226e357.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3c81a47e.js",
+    "static/css/2.2fbe55bd.chunk.css",
+    "static/js/2.4226e357.chunk.js",
+    "static/css/main.2236a508.chunk.css",
+    "static/js/main.c4ec5289.chunk.js"
+  ]
+}
