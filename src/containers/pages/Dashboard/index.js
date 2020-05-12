@@ -96,9 +96,7 @@ class Dashboard extends Component {
         return(
           <Layout>
             <Header className="header">
-              <div>
-                <Avatar size={55} src="Picture/ebook.png"/>
-              </div>
+              
             </Header>
 
             <Layout>
@@ -146,7 +144,11 @@ class Dashboard extends Component {
                               <p className="title"> {article.data.title} </p>
                               <p className="date"> {article.data.date} </p>
                               <p className="content"> {article.data.content} </p>
-                              <div className="delete-button" onClick={(e) => deleteArticle(e, article)}> Delete </div>
+                              <div className="delete-button" onClick={(e) => deleteArticle(e, article)}> 
+                                  <Button type="primary" shape="round" danger>
+                                    Delete
+                                  </Button>
+                                </div>
                             </div>
                           )
                         })

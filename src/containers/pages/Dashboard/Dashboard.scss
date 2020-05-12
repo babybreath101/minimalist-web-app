@@ -1,23 +1,21 @@
 .header {
     background-color: black;
 }
+
 .sub-title {
     font-size: 18px;
-    font-family: 'Arial';
-    font-style: normal;
+    font-family: 'Segoe UI', sans-serif;
     font-weight: bold;
 }
 .sub-content {
     font-size: 18px;
-    font-family: 'Arial';
-    font-style: normal;
+    font-family: 'Segoe UI', sans-serif;
     font-weight: bold;
 }
 .list-published{
     font-size: 18px;
-    font-family: 'Arial';
-    font-style: normal;
-    font-weight: bold;;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
 }
 .container {
     max-width: 900px;
@@ -60,6 +58,7 @@
         }
         .upload-btn {
             padding: 12px 50px;
+            align-items: right;
             border-radius: 50px;
             background: white;
             border: 2px solid blue;
@@ -108,17 +107,17 @@
                 font-size: 14px;
             }
             .delete-button {
-                padding: 12px 50px;
-                border-radius: 50px;
-                background: white;
-                border: 2px solid red;
-                color: red;
-                width: 15px;
+                //padding: 12px 50px;
+                //border-radius: 50px;
+                //background: white;
+                //border: 2px solid red;
+                //color: red;
+                //width: 15px;
                 //text-align: center;
-                font-size: 10px;
-                font-weight: bold;
-                text-transform: uppercase;
-                outline: none;
+                //font-size: 10px;
+                //font-weight: bold;
+                //text-transform: uppercase;
+                //outline: none;
                 &:hover {
                     cursor: pointer;
                 }
