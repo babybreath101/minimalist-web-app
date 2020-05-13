@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/minimalist-web-app/static/css/main.2236a508.chunk.css",
-    "main.js": "/minimalist-web-app/static/js/main.c4ec5289.chunk.js",
-    "main.js.map": "/minimalist-web-app/static/js/main.c4ec5289.chunk.js.map",
-    "runtime-main.js": "/minimalist-web-app/static/js/runtime-main.3c81a47e.js",
-    "runtime-main.js.map": "/minimalist-web-app/static/js/runtime-main.3c81a47e.js.map",
-    "static/css/2.2fbe55bd.chunk.css": "/minimalist-web-app/static/css/2.2fbe55bd.chunk.css",
-    "static/js/2.4226e357.chunk.js": "/minimalist-web-app/static/js/2.4226e357.chunk.js",
-    "static/js/2.4226e357.chunk.js.map": "/minimalist-web-app/static/js/2.4226e357.chunk.js.map",
-    "index.html": "/minimalist-web-app/index.html",
-    "precache-manifest.bbb93abb42e37e1e86f467a940c65f62.js": "/minimalist-web-app/precache-manifest.bbb93abb42e37e1e86f467a940c65f62.js",
-    "service-worker.js": "/minimalist-web-app/service-worker.js",
-    "static/css/2.2fbe55bd.chunk.css.map": "/minimalist-web-app/static/css/2.2fbe55bd.chunk.css.map",
-    "static/css/main.2236a508.chunk.css.map": "/minimalist-web-app/static/css/main.2236a508.chunk.css.map",
-    "static/js/2.4226e357.chunk.js.LICENSE.txt": "/minimalist-web-app/static/js/2.4226e357.chunk.js.LICENSE.txt"
+    "main.css": "/Responsi-Web3/static/css/main.2236a508.chunk.css",
+    "main.js": "/Responsi-Web3/static/js/main.e4bd2d7f.chunk.js",
+    "main.js.map": "/Responsi-Web3/static/js/main.e4bd2d7f.chunk.js.map",
+    "runtime-main.js": "/Responsi-Web3/static/js/runtime-main.4a4a45fe.js",
+    "runtime-main.js.map": "/Responsi-Web3/static/js/runtime-main.4a4a45fe.js.map",
+    "static/css/2.2fbe55bd.chunk.css": "/Responsi-Web3/static/css/2.2fbe55bd.chunk.css",
+    "static/js/2.8aa60295.chunk.js": "/Responsi-Web3/static/js/2.8aa60295.chunk.js",
+    "static/js/2.8aa60295.chunk.js.map": "/Responsi-Web3/static/js/2.8aa60295.chunk.js.map",
+    "index.html": "/Responsi-Web3/index.html",
+    "precache-manifest.725b1092c217b04d912ec6167bb8924b.js": "/Responsi-Web3/precache-manifest.725b1092c217b04d912ec6167bb8924b.js",
+    "service-worker.js": "/Responsi-Web3/service-worker.js",
+    "static/css/2.2fbe55bd.chunk.css.map": "/Responsi-Web3/static/css/2.2fbe55bd.chunk.css.map",
+    "static/css/main.2236a508.chunk.css.map": "/Responsi-Web3/static/css/main.2236a508.chunk.css.map",
+    "static/js/2.8aa60295.chunk.js.LICENSE.txt": "/Responsi-Web3/static/js/2.8aa60295.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.3c81a47e.js",
+    "static/js/runtime-main.4a4a45fe.js",
     "static/css/2.2fbe55bd.chunk.css",
-    "static/js/2.4226e357.chunk.js",
+    "static/js/2.8aa60295.chunk.js",
     "static/css/main.2236a508.chunk.css",
-    "static/js/main.c4ec5289.chunk.js"
+    "static/js/main.e4bd2d7f.chunk.js"
   ]
 }
