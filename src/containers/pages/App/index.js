@@ -35,9 +35,9 @@ function App() {
     <Provider store={store}> 
       <Router>
         <div>
-          <Route path="/" exact component={Dashboard}/> 
+          <Route exact path="/" component={Register}/> 
           <Route path="/login" component={Login}/> 
-          <Route path="/register" component={Register}/>
+          <Route path="/dashboard" component={Dashboard}/>
         </div>
       </Router>
     </Provider>

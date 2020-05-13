@@ -5,6 +5,7 @@ import './Register.scss';
 import Button from '../../../components/atoms/Button';
 import { connect } from 'react-redux';
 import { registerUserAPI } from '../../../config/redux/action';
+import { Link } from 'react-router-dom';
 
 class Register extends Component {
     state = {
@@ -37,7 +38,11 @@ class Register extends Component {
                     <p className="auth-title"> Register Page </p>
                     <input className="input" id="email" placeholder="Email" type="text" onChange={this.handleChangeText} value={this.state.email}/>
                     <input className="input" id="password" placeholder="Password" type="password" onChange={this.handleChangeText} values={this.state.password}/>
-                    <Button onClick={this.handleRegisterSubmit} title="Register" loading={this.props.isLoading}/>
+                    
+                    <Link to="/login">
+                        <Button onClick={this.handleRegisterSubmit} title="Register" loading={this.props.isLoading}/>
+                    </Link> 
+                    
                 </div>   
             </div>
         )

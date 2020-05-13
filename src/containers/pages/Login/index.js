@@ -5,6 +5,7 @@ import './Login.scss';
 import { connect } from 'react-redux';
 import Button from '../../../components/atoms/Button';
 import { loginUserAPI } from '../../../config/redux/action';
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
     state = {
@@ -42,7 +43,11 @@ class Login extends Component {
                     <p className="auth-title"> Login Page </p>
                     <input className="input" id="email" placeholder="Email" type="text" onChange={this.handleChangeText} value={this.state.email}/>
                     <input className="input" id="password" placeholder="Password" type="password" onChange={this.handleChangeText} value={this.state.password}/>
-                    <Button onClick={this.handleLoginSubmit} title="Login" loading={this.props.isLoading}/>
+                    
+                    <Link to="/dashboard">
+                        <Button onClick={this.handleLoginSubmit} title="Login" loading={this.props.isLoading}/>
+                    </Link>
+
                 </div>   
             </div>
         )
